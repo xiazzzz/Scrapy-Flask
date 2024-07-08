@@ -1,0 +1,24 @@
+{% extends 'child1.html' %}
+
+{#super#}
+{% block head %}
+    {{ super() }}
+    <p>python</p>
+{% endblock %}
+
+{% block content %}
+    {% include 'child2_include.html' %}
+    <p>Flask App</p>
+{% endblock %}
+
+
+{#宏定义   需要调用#}
+{% macro person(name,age) %}
+    <b>姓名:{{ name }},年龄:{{ age }}</b>
+{% endmacro %}
+
+{% block foot %}
+    {{ person('kunkun',25) }}
+    <p>{{ name|capitalize }}</p>
+    <p>{{ name|title }}</p>
+{% endblock %}
